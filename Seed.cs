@@ -19,33 +19,35 @@ namespace PostAndCommentAPI
 
                 context.Database.EnsureCreated();
 
-                if (!context.Contents.Any())
+                if (!context.Products.Any())
                 {
-                    context.Contents.AddRange(new List<Content>()
+                    context.Products.AddRange(new List<Product>()
                     {
 
-                        new Content()
+                        new Product()
                         {
-                            PosterName = "Damilola",
-                            ContentText = "This is an api for testing various comments.",
+                            ProductName = "HP EliteBook 2560P",
+                            ProductDate = new DateTime(2002,9,7),
+                            ProductDescription = "This is a good pc.",
                             Comments = new List<Comment>()
                             {
-                                new Comment { Title = "Damilola", CommentText = "Are you sure this is an api?", Like = true, Commenter = new Commenter() { FirstName = "Enyiuumin", Lastname = "Jiumin" } },
-                                new Comment { Title = "Damilola", CommentText = "That's good of you", Like = true, Commenter = new Commenter() { FirstName = "Mancha", Lastname = "Pam" } },
-                                new Comment { Title = "Damilola", CommentText = "Whaooo......", Like = false, Commenter = new Commenter() { FirstName = "Segun", Lastname = "Daniel" } }
+                                new Comment { Title = "HP EliteBook 2560P", CommentText = "Are you sure this pc is good?", Like = true, Commenter = new Commenter() { FirstName = "Enyiuumin", Lastname = "Jiumin" } },
+                                new Comment { Title = "HP EliteBook 2560P", CommentText = "That's a good product", Like = true, Commenter = new Commenter() { FirstName = "Mancha", Lastname = "Pam" } },
+                                new Comment { Title = "HP EliteBook 2560P", CommentText = "Whaooo......I don't like this product", Like = false, Commenter = new Commenter() { FirstName = "Segun", Lastname = "Daniel" } }
 
                             }
                         },
 
-                        new Content()
+                        new Product()
                         {
-                            PosterName = "Sodiq",
-                            ContentText = "You can as well use redux to build api.",
+                            ProductName = "Dell Premium",
+                            ProductDate = new DateTime(2022,2,10),
+                            ProductDescription = "This PC is core I5, and has 16GB of RAM.",
                             Comments = new List<Comment>()
                             {
-                                new Comment { Title = "Sodiq", CommentText = "Thats good to hear", Like = true, Commenter = new Commenter() { FirstName = "Enyiuumin", Lastname = "Jiumin" } },
-                                new Comment { Title = "Sodiq", CommentText = "Really...Really..", Like = true, Commenter = new Commenter() { FirstName = "Mancha", Lastname = "Pam" } },
-                                new Comment { Title = "Sodiq", CommentText = "No, I don't think so.....", Like = false, Commenter = new Commenter() { FirstName = "Segun", Lastname = "Daniel" } }
+                                new Comment { Title = "Dell Premium", CommentText = "Thats good to hear", Like = true, Commenter = new Commenter() { FirstName = "Enyiuumin", Lastname = "Jiumin" } },
+                                new Comment { Title = "Dell Premium", CommentText = "Really...Really..", Like = true, Commenter = new Commenter() { FirstName = "Mancha", Lastname = "Pam" } },
+                                new Comment { Title = "Dell Premium", CommentText = "No, I don't think so.....", Like = false, Commenter = new Commenter() { FirstName = "Segun", Lastname = "Daniel" } }
 
                             }
 

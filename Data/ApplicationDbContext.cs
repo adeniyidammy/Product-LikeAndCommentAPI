@@ -11,7 +11,7 @@ namespace PostAndCommentAPI.Data
         }
 
 
-        public DbSet<Content>? Contents { get; set; }    
+        public DbSet<Product>? Products { get; set; }    
         public DbSet<Comment>? Comments { get; set; }
         public DbSet<Commenter>? Commenters { get; set; }
     }

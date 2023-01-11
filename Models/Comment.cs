@@ -6,7 +6,7 @@
         public string? Title { get; set; }
         public string? CommentText { get; set; }
         public bool Like { get; set; }
-        public Content? Content { get; set; }
+        public Product? Product { get; set; }
         public Commenter? Commenter { get; set; }   
     }
 }
