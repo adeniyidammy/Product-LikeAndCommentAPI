@@ -126,7 +126,7 @@ namespace PostAndCommentAPI.Controllers
                 ModelState.AddModelError("", "Something went wrong while updating");
                 return StatusCode(500, ModelState);
             }
-            return Ok("Comment Updated Successfully");
+            return NoContent();
 
         }
 
@@ -152,7 +152,7 @@ namespace PostAndCommentAPI.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return Ok("Comment Deleted Successfully");
+            return NoContent();
 
         }
 

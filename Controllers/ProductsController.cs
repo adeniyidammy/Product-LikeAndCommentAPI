@@ -118,7 +118,7 @@ namespace PostAndCommentAPI.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return Ok("Product Updated Successfully");
+            return NoContent();
         }
 
         [HttpDelete]
@@ -143,7 +143,7 @@ namespace PostAndCommentAPI.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return Ok("Product Deleted Successfully");
+            return NoContent();
 
         }
 
