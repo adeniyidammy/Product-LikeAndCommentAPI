@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\Documents\\My Project Files\\PostAndCommentAPI\\PostAndCommentAPI.csproj": {}
+    "C:\\Users\\DamilolaAdeniyi\\Desktop\\PostAndCommentAPI\\PostAndCommentAPI\\PostAndCommentAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\Documents\\My Project Files\\PostAndCommentAPI\\PostAndCommentAPI.csproj": {
+    "C:\\Users\\DamilolaAdeniyi\\Desktop\\PostAndCommentAPI\\PostAndCommentAPI\\PostAndCommentAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Documents\\My Project Files\\PostAndCommentAPI\\PostAndCommentAPI.csproj",
+        "projectUniqueName": "C:\\Users\\DamilolaAdeniyi\\Desktop\\PostAndCommentAPI\\PostAndCommentAPI\\PostAndCommentAPI.csproj",
         "projectName": "PostAndCommentAPI",
-        "projectPath": "C:\\Users\\USER\\Documents\\My Project Files\\PostAndCommentAPI\\PostAndCommentAPI.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Documents\\My Project Files\\PostAndCommentAPI\\obj\\",
+        "projectPath": "C:\\Users\\DamilolaAdeniyi\\Desktop\\PostAndCommentAPI\\PostAndCommentAPI\\PostAndCommentAPI.csproj",
+        "packagesPath": "C:\\Users\\DamilolaAdeniyi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\DamilolaAdeniyi\\Desktop\\PostAndCommentAPI\\PostAndCommentAPI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DamilolaAdeniyi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +43,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.12, )"
@@ -70,24 +77,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.12, 6.0.12]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[6.0.12, 6.0.12]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.12, 6.0.12]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.12, 6.0.12]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -96,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

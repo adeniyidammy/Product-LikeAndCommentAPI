@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "pzaYdv2PuSnK8S5ze06zk/1aq1uqMkrsTcCLhcR6Fmc=",
+  "Source": "PostAndCommentAPI",
+  "BasePath": "_content/PostAndCommentAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

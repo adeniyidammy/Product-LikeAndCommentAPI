@@ -6,7 +6,7 @@ namespace PostAndCommentAPI.Interface
     {
         Task<ICollection<Commenter>> GetCommentersAsync();
         Task<Commenter> GetCommenterByIdAsync(int commenterId);
-        Task<Comment> GetCommentsByCommenterAsync(int commenterId);
+        Task<ICollection<Comment>> GetCommentsByCommenterAsync(int commenterId);
         Task<bool> CheckIfCommenterExists(int commenterId);
         bool CreateCommenterAsync(Commenter commenter);
         bool UpdateCommentAsync(Commenter commenter);

@@ -7,10 +7,13 @@ namespace PostAndCommentAPI.Interface
         Task <ICollection<Comment>> GetCommentsAsync();
         bool UpdateCommentsAsync(Comment comment);
         Task<Comment> GetCommentByIdAsync(int commentId);
-        Task<Comment> GetCommentOfProducts(int productId);
+        Task <ICollection<Comment>>GetCommentsOfAProduct(int productId);
         bool DeleteCommentAsync(Comment comment);
         bool CreateCommentAsync(Comment comment);
         Task<bool> CheckIfCommentExist(int commentId);
+
+        bool Save();
+
        
     }
 }

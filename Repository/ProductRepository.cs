@@ -1,14 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PostAndCommentAPI.Data;
 using PostAndCommentAPI.Interface;
 using PostAndCommentAPI.Models;
 
 namespace PostAndCommentAPI.Repository
 {
-    public class ProductService : IProduct
+    public class ProductRepository : IProduct
     {
         private readonly ApplicationDbContext _context;
-        public ProductService(ApplicationDbContext context)
+        public ProductRepository(ApplicationDbContext context)
         {
                 _context = context;
         }
@@ -42,6 +43,17 @@ namespace PostAndCommentAPI.Repository
             return await _context.Products.OrderBy(x => x.Id).ToListAsync();
         }
 
+        public bool LikeProduct(Product product)
+        {
+            _context.Update(product);
+            return Save();
+        }
+        public bool UnikeProduct(Product product)
+        {
+            _context.Update(product);
+            return Save();
+        }
+
         public bool Save()
         {
             var saved = _context.SaveChanges();
@@ -52,6 +64,11 @@ namespace PostAndCommentAPI.Repository
         {
             _context.Update(product);
             return Save();
+        }
+
+        public async Task<ICollection<Product>> GetLikedProductsAsync()
+        {
+            return await _context.Products.Where(x => x.Like == true).ToListAsync();
         }
     }
 }

@@ -12,7 +12,9 @@ namespace PostAndCommentAPI.Interface
         bool DeleteProductAsync(Product product);
         bool Save();
 
-
+        bool LikeProduct(Product product);
+        bool UnikeProduct(Product product);
+        Task<ICollection<Product>> GetLikedProductsAsync();
 
     }
 }
