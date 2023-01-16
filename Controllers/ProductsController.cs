@@ -89,34 +89,16 @@ namespace PostAndCommentAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateProduct([FromQuery] int productId, [FromBody] ProductDto updateProd)
+        public async Task<IActionResult> UpdateProduct([FromQuery] int productId, [FromBody] UpdateProductDto updateProd)
         {
-            if (updateProd == null)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (productId != updateProd.Id)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (!await _product.CheckIfProductExist(productId))
+            var product = await _product.GetProductbyIdAsync(productId);
+            if (product == null)
             {
                 return NotFound();
             }
 
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var prodMap = _mapper.Map<Product>(updateProd);
-            if (!(_product.UpdateProductAsync(prodMap)))
-            {
-                ModelState.AddModelError("", "Something went wrong while updating");
-                return StatusCode(500, ModelState);
-            }
+            _mapper.Map(updateProd, product);
+            _product.Save();
 
             return NoContent();
         }

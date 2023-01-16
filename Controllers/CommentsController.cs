@@ -98,36 +98,18 @@ namespace PostAndCommentAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateComment([FromQuery] int commentId, [FromBody] CommentDto updateComm)
+        public async Task<IActionResult> UpdateComment([FromQuery] int commentId, [FromBody] UpdateCommentDto updateComm)
         {
-            if (updateComm == null)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (commentId != updateComm.Id)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (!await _comment.CheckIfCommentExist(commentId))
+            var comment = await _comment.GetCommentByIdAsync(commentId);
+            if (comment == null)
             {
                 return NotFound();
             }
 
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            _mapper.Map(updateComm, comment);
+            _comment.Save();
 
-            var commMap = _mapper.Map<Comment>(updateComm);
-            if (!(_comment.UpdateCommentsAsync(commMap)))
-            {
-                ModelState.AddModelError("", "Something went wrong while updating");
-                return StatusCode(500, ModelState);
-            }
             return NoContent();
-
         }
 
         [HttpDelete]

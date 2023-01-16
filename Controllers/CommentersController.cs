@@ -15,7 +15,7 @@
 //        public CommentersController(ICommenter commenter, IMapper mapper)
 //        {
 //            _commenter = commenter;
-//            _mapper = mapper;   
+//            _mapper = mapper;
 //        }
 
 //        [HttpGet]
@@ -70,13 +70,13 @@
 //            }
 
 //            return Ok(result);
-            
+
 //        }
 
 //        [HttpPost]
 //        public async Task<IActionResult> CreateCommenter([FromBody] CommentersDto createCommenter)
 //        {
-//            if(createCommenter == null)
+//            if (createCommenter == null)
 //            {
 //                return BadRequest(ModelState);
 //            }
@@ -111,34 +111,46 @@
 //        [HttpPut]
 //        public async Task<IActionResult> UpdateCommenter([FromQuery] int commenterId, [FromBody] CommentersDto updateCommenter)
 //        {
-//            if (updateCommenter == null)
-//            {
-//                return BadRequest(ModelState);
-//            }
 
-//            //if (commenterId != updateCommenter.Id)
-//            //{
-//            //    return BadRequest(ModelState);
-//            //}
-
-//            if (!await _commenter.CheckIfCommenterExists(commenterId))
+//            var commenter = await _commenter.GetCommenterByIdAsync(commenterId);
+//            if(commenter == null)
 //            {
 //                return NotFound();
 //            }
 
-//            if (!ModelState.IsValid)
-//            {
-//                return BadRequest(ModelState);
-//            }
+//            _mapper.Map(updateCommenter, commenter);
+//             _commenter.Save();
 
-//            var commenterMap = _mapper.Map<Commenter>(updateCommenter);
-//            if (!(_commenter.UpdateCommentAsync(commenterMap)))
-//            {
-//                ModelState.AddModelError("", "Something went wrong while updating");
-//                return StatusCode(500, ModelState);
-//            }
+//            return NoContent();
 
-//            return Ok("Commenter Updated Successfully");
+//            //if (updateCommenter == null)
+//            //{
+//            //    return BadRequest(ModelState);
+//            //}
+
+//            ////if (commenterId != updateCommenter.Id)
+//            ////{
+//            ////    return BadRequest(ModelState);
+//            ////}
+
+//            //if (!await _commenter.CheckIfCommenterExists(commenterId))
+//            //{
+//            //    return NotFound();
+//            //}
+
+//            //if (!ModelState.IsValid)
+//            //{
+//            //    return BadRequest(ModelState);
+//            //}
+
+//            //var commenterMap = _mapper.Map<Commenter>(updateCommenter);
+//            //if (!(_commenter.UpdateCommentAsync(commenterMap)))
+//            //{
+//            //    ModelState.AddModelError("", "Something went wrong while updating");
+//            //    return StatusCode(500, ModelState);
+//            //}
+
+//            //return Ok("Commenter Updated Successfully");
 //        }
 
 //        [HttpDelete]

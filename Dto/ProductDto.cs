@@ -20,4 +20,12 @@ namespace PostAndCommentAPI.Dto
         public DateTime ProductDate { get; set; }
         public string? ProductDescription { get; set; }
     }
+    public class UpdateProductDto
+    {
+        public string? ProductName { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime ProductDate { get; set; }
+        public string? ProductDescription { get; set; }
+    }
 }

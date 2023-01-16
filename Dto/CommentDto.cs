@@ -14,4 +14,9 @@ namespace PostAndCommentAPI.Dto
         public string? Title { get; set; }
         public string? CommentText { get; set; }
     }
+    public class UpdateCommentDto
+    {
+        public string? Title { get; set; }
+        public string? CommentText { get; set; }
+    }
 }

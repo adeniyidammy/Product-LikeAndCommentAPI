@@ -50,6 +50,11 @@ namespace PostAndCommentAPI.Repository
             return saved > 0 ? true : false;
         }
 
+        //public Task SaveChanges()
+        //{
+        //    return _context.SaveChangesAsync();
+        //}
+
         public bool UpdateCommentAsync(Commenter commenter)
         {
             _context.Update(commenter);
