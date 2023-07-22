@@ -20,6 +20,7 @@ namespace PostAndCommentAPI.Controllers
         }
 
         [HttpGet]
+        [Route("GetProducts")]
         public async Task<IActionResult> GetProducts()
         {
             var products = await _product.GetProductsAsync();
@@ -33,7 +34,9 @@ namespace PostAndCommentAPI.Controllers
             return Ok(result);
         }
 
-        [HttpGet("productId")]
+        [HttpGet]
+        [Route("{productId}")]
+
         public async Task<IActionResult> GetProductById(int productId)
         {
             var check = await _product.CheckIfProductExist(productId);
@@ -56,6 +59,7 @@ namespace PostAndCommentAPI.Controllers
         }
 
         [HttpPost]
+        [Route("CreateProduct")]
         public async Task<IActionResult> CreateProduct([FromBody] CreateGetProductDto createProd)
         {
             if (createProd == null)
@@ -89,7 +93,8 @@ namespace PostAndCommentAPI.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateProduct([FromQuery] int productId, [FromBody] UpdateProductDto updateProd)
+        [Route("UpdateProduct/{productId}")]
+        public async Task<IActionResult> UpdateProduct(/*[FromQuery] */int productId, [FromBody] UpdateProductDto updateProd)
         {
             var product = await _product.GetProductbyIdAsync(productId);
             if (product == null)
@@ -104,6 +109,7 @@ namespace PostAndCommentAPI.Controllers
         }
 
         [HttpDelete]
+        [Route("DeleteProduct/{productId}")]
         public async Task<IActionResult> DeleteProduct(int productId)
         {
             var check = await _product.CheckIfProductExist(productId);
@@ -129,7 +135,7 @@ namespace PostAndCommentAPI.Controllers
 
         }
 
-        [HttpPost("{productId}/Like")]
+        [HttpPost("Like/{productId}")]
         public async Task<IActionResult> Like(int productId)
         {
             var check = await _product.CheckIfProductExist(productId);
@@ -151,7 +157,7 @@ namespace PostAndCommentAPI.Controllers
 
         }
 
-        [HttpPost("{productId}/Unlike")]
+        [HttpPost("Unlike/{productId}")]
         public async Task<IActionResult> Unlike(int productId)
         {
             var check = await _product.CheckIfProductExist(productId);
